@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Portfolio | PLL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <div class="brand">Disha <span>Analog</span> Portfolio</div>
+        <nav>
+          <a class="nav-link" href="index.html">PLL</a>
+          <a class="nav-link" href="ldo.html">LDO</a>
+          <a class="nav-link" href="sar-adc.html">SAR ADC</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Phase Locked Loop (PLL)</h1>
+        <p>
+          This page is my own PLL project presentation using my simulation captures.
+          I used the reference PDF only as a report-flow guide, then rebuilt the content
+          with my own implementation details, block results, and final lock behavior.
+        </p>
+        <div class="meta">
+          <span class="badge">Technology: 180nm</span>
+          <span class="badge">Reference Input: 30 MHz</span>
+          <span class="badge">VCO Output: ~1.9 GHz</span>
+        </div>
+        <div class="file-links">
+          <a href="PLL/Reference/[PPT] EE230_PLL_Project.pdf" target="_blank">Open Reference PDF</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Project Overview</h2>
+          <small>My version with personal screenshots and notes</small>
+        </div>
+        <div class="note">
+          PLL in one line: compare phase, push/pull control voltage, tune VCO, divide back, repeat until lock.
+        </div>
+        <div class="note">
+          Input reference is 30 MHz, VCO runs around 1.9 GHz, and divider feedback is brought back to 30 MHz for phase/frequency comparison.
+        </div>
+        <div class="note">
+          Screenshot structure: each block is shown as <strong>Schematic -> Testbench -> Waveform</strong> so design intent and behavior stay side by side.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>PFD</h2>
+          <small>Pulse generation and reset timing</small>
+        </div>
+        <div class="note">
+          Intuition: PFD tells who is early (ref or feedback) and converts timing error into UP/DOWN pulses.
+        </div>
+        <div class="note">
+          Up/down pulse behavior was fixed by increasing gate drive sizing, which improved reset speed in the full combined PFD path.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="PLL/PFD/PFD schematic.png" alt="PFD schematic" />
+            <div class="caption"><strong>PFD Schematic</strong><span>Core phase detector implementation</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/PFD/PFD TB.png" alt="PFD testbench" />
+            <div class="caption"><strong>PFD Testbench</strong><span>Stimulus for phase lead/lag cases</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/PFD/PFD TB_waveform.png" alt="PFD waveform" />
+            <div class="caption"><strong>PFD Waveform</strong><span>UP pulse generated at alignment event</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Charge Pump</h2>
+          <small>Current steering with op-amp support</small>
+        </div>
+        <div class="note">
+          Intuition: UP/DOWN pulses are converted into small charge/discharge actions that move control voltage in the needed direction.
+        </div>
+        <div class="note">
+          Op-amp polarity and feedback routing follow the same negative-feedback convention used in my LDO work.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="PLL/Charge Pump/charge pump_schematic.png" alt="Charge pump schematic" />
+            <div class="caption"><strong>Charge Pump Schematic</strong><span>Main current mirror and switching path</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Charge Pump/charge pump_opamp_schematic.png" alt="Charge pump op amp schematic" />
+            <div class="caption"><strong>Op-amp Sub-block</strong><span>Single-stage op-amp used inside charge pump</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Charge Pump/Charge Pump_TB_waveform.png" alt="Charge pump waveform" />
+            <div class="caption"><strong>Charge Pump Output</strong><span>Response under UP/DOWN events</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Divider</h2>
+          <small>DFF and TSPC-based stages</small>
+        </div>
+        <div class="note">
+          Intuition: divider scales high-frequency VCO output down to reference range so phase comparison is meaningful.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="PLL/Divider/DFF_schematic.png" alt="DFF schematic" />
+            <div class="caption"><strong>DFF Schematic</strong><span>Core frequency division element</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Divider/TSPC_schematic.png" alt="TSPC schematic" />
+            <div class="caption"><strong>TSPC Schematic</strong><span>Dynamic latch stage used in divider chain</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Divider/Divider_TB_waveform.png" alt="Divider waveform" />
+            <div class="caption"><strong>Divider Waveform</strong><span>Output aligned to required feedback frequency</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>VCO Ring</h2>
+          <small>Iteration-based design refinement</small>
+        </div>
+        <div class="note">
+          Intuition: VCO turns control voltage into oscillation frequency; higher control shifts delay and output frequency.
+        </div>
+        <div class="note">
+          Since startup circuitry is not included, simulator convergence settings and initial conditions were important for oscillation visibility.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="PLL/VCO_ring/it1_schematic.png" alt="VCO iteration 1 schematic" />
+            <div class="caption"><strong>Iteration 1</strong><span>Early-stage topology and bias behavior</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/VCO_ring/it3_waveform.png" alt="VCO iteration 3 waveform" />
+            <div class="caption"><strong>Iteration 3 Waveform</strong><span>Oscillation progression during tuning</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/VCO_ring/it5_schematic-final.png" alt="VCO final schematic" />
+            <div class="caption"><strong>Iteration 5 Final</strong><span>Finalized VCO stage for full-loop integration</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Whole System</h2>
+          <small>Final loop behavior</small>
+        </div>
+        <div class="note">
+          Intuition: once loop settles, divider feedback matches reference in both frequency and phase.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="PLL/Whole System/WholeSystem_schematic.png" alt="Whole PLL system schematic" />
+            <div class="caption"><strong>Top-Level Schematic</strong><span>PFD + CP + VCO + Divider integration</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Whole System/final_output_zoomed(freq and phase matched).png" alt="PLL output zoomed frequency and phase matched" />
+            <div class="caption"><strong>Final Output Zoomed</strong><span>Frequency and phase match observed</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Whole System/final_output_zoomed2(freq and phase matched).png" alt="PLL output zoomed 2 frequency and phase matched" />
+            <div class="caption"><strong>Final Output Zoomed 2</strong><span>Additional lock evidence</span></div>
+          </article>
+        </div>
+      </section>
+
+      <p class="footer">Built for GitHub Pages. Click any image to enlarge.</p>
+    </main>
+
+    <div class="modal" id="img-modal">
+      <img id="img-modal-content" src="" alt="Expanded project image" />
+    </div>
+
+    <script src="assets/script.js"></script>
+  </body>
+</html>

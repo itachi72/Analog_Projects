@@ -1,0 +1,7 @@
+1. The opamp inside the charge pump, I have used vpos and vneg terminology same as what I used in my LDO. did not follow Muhammad's terminology.
+Then when connecting this opamp into the charge pump, he wants the output to go to the gate of nmos just below from from the output was tapped. position of tapping out the output is constant across all terminologies on the internet.
+so acc to my terminology, the output is fed back to vpos.
+Again, this doesn't make it positive feedback. it is still negative feedback. Same approach as in LDO.
+2. Sizing of single stage opamo similar to Hafeez KT's. But bit diff as per current and other specs needed. Followed W/L ratios of Muhammad's, but used larger L as I am using 180nm technology.eg if Muhammad used l=500n and w=48u, then w/l=96. as my tech is larger, I need to use larger L to get same effect. I used l=1u in this case and w=96u
+3. for the charge pump, the below 3 nmos making up the current mirror, have sizing derived from calculations. used Muhammad's. Same for 2 pmos at top forming the current mirror.
+As for the 2 nmos and 2 pmos surrounding the opamp, they just need to be large enough(large here meaning keeping in mind the widths of transistors int he opamp and the current mirrors).

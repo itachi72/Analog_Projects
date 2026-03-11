@@ -1,0 +1,4 @@
+1. When fb arrives before ref, down goes to 1 and up remains at 0. as soon as ref reaches fb, and also becomes 1 ie fb and rf both 1, then up also becomes 1 ie up down both are 1. which activates reset and makes up down both 0 again very fast. so up goes to 1 while down being 1 already, and when up also goes 1 it resets fast and immediately becomes 0, thus up is seen as a pulse
+2. I was not seeing this expected behaviour even though all gates nand, nor and inv were working fine on their own. even rs latch. but i realised that all together doesn't work fine as the reset was too slow. so changed sizing of gates. initially inv nmos(w) was 220nm and pmos(w) was 440nm.
+this is for low power. and doesn't have enough drive strength in the schematic.
+so changed inv to nmos(w) 2um and pmos(w) 4um. and all gates accordingly considering this as reference gate

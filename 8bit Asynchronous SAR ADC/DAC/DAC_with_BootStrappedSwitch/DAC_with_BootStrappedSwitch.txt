@@ -1,0 +1,4 @@
+1. Input given only to 
+2. waveforms taken such that: s=1, then int he time when s=0, all decisions on d7-d0 are taken. assumption taken that comparator output is 0 for all 8 decisions so each bit turns 0 after turning 1. all such 8 decisions outputs should happen when s=0. (ie s=0, sar makes d7 made 1, then comparator will say 0 so sar will make d7=0 and d6=1. now too s=0 so this will apply and again comparaison and so on... until decision for all 8 bits is done)
+this is one cycle of sampling and hold(s=1) and decision(s=0)
+I have taken waveforms such that 10 such sampling and decision cycles in one time period of input wave, so that good number of samples of the input wave can be taken and a good picture of the input wave can be made in digital

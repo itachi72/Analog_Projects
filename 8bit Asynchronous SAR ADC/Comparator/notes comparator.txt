@@ -1,0 +1,6 @@
+1. Did not need to individually test StrongArmLatch, RSLatch and XOR because Comparator as a whole produced correct results directly. So did not need to test individual blocks to find out where there is error.
+2. Understanding output waveform:
+Genarted inn and inp pulses such that there will be intervals of inn<inp and inn>inp so that can see if outp goes to 1 when inn<inp and outp goes to 0 when inn>inp.
+outn is inverse of inp
+decision making of outputs happens on high level of input clk and outputs are generated on high level of clk itself.
+refer strong arm ckt in ppt to understand working to understand this.

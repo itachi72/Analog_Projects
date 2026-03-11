@@ -1,0 +1,2 @@
+1. For TB of BootStrappedSwitch, it is not built on the symbol because I want to observe signals like signals on both sides of the C_offset, which is accessible only in the schematic as we are not taking these signals out on pins in the symbol.
+2. So TB is built by giving relevant inputs on the schematic itself.

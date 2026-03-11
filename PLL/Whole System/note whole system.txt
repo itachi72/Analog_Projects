@@ -1,0 +1,1 @@
+1. Input freq(ref)= 30Mhz, vco output=1.9GHz, divider output(fb)= 30Mhz

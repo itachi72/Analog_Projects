@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Portfolio | LDO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <div class="brand">Disha <span>Analog</span> Portfolio</div>
+        <nav>
+          <a class="nav-link" href="index.html">PLL</a>
+          <a class="nav-link" href="ldo.html">LDO</a>
+          <a class="nav-link" href="sar-adc.html">SAR ADC</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Low Dropout Regulator (LDO)</h1>
+        <p>
+          Error amplifier exploration, integrated LDO behavior, and op-amp testbench results.
+          This page groups all LDO-related screenshots and analysis captures.
+        </p>
+        <div class="note">
+          LDO in one line: compare output with reference, amplify error, drive pass device, keep output steady.
+        </div>
+        <div class="note">
+          Screenshot structure: each block follows <strong>Schematic -> Bias/Test Setup -> DC/Waveform Result</strong>.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Error Amplifier</h2>
+          <small>DC behavior under VP/VN variation</small>
+        </div>
+        <div class="note">
+          Intuition: tiny VP-VN difference gets amplified and becomes the correction signal for regulation.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="LDO/Error Amplifier/error_amp.png" alt="Error amplifier schematic" />
+            <div class="caption"><strong>Error Amp Schematic</strong><span>Core amplifier stage</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="LDO/Error Amplifier/DC_sim(VP equal to VN).png" alt="Error amp DC simulation VP equal VN" />
+            <div class="caption"><strong>VP = VN</strong><span>DC operating condition reference</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="LDO/Error Amplifier/DC_sim(VP higher than VN, notice output of error amp increasing).png" alt="Error amp DC simulation VP higher than VN" />
+            <div class="caption"><strong>VP > VN Case</strong><span>Output behavior with differential input</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>LDO + Error Amplifier Integration</h2>
+          <small>Combined regulation behavior</small>
+        </div>
+        <div class="note">
+          Intuition: closed-loop connection shows how reference setting maps to regulated output level.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="LDO/LDO_Error_Amplifier/LDO sch.png" alt="LDO schematic" />
+            <div class="caption"><strong>LDO Schematic</strong><span>Integrated regulator + control block</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="LDO/LDO_Error_Amplifier/LDO DC analysis(Vref=VN=1.2, Vout=1.5)see Vds of M2, calculate, gets 1.5V=VD=Vout.png" alt="LDO DC analysis" />
+            <div class="caption"><strong>DC Analysis</strong><span>Vref and output relation validation</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>New Hafeez KT Variant</h2>
+          <small>Alternative implementation and tuning</small>
+        </div>
+        <div class="note">
+          Intuition: this variant explores alternate sizing/topology choices to hit target gain and operating point.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="LDO/New_Hafeez KT/LDO_schematic.png" alt="New Hafeez KT LDO schematic" />
+            <div class="caption"><strong>Variant LDO Schematic</strong><span>Updated structure for target behavior</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="LDO/New_Hafeez KT/opamp schematic.png" alt="Opamp schematic" />
+            <div class="caption"><strong>Op-amp Schematic</strong><span>Companion amplifier used in design</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="LDO/New_Hafeez KT/opamp testbench(voltage follower)_waveform.png" alt="Opamp follower waveform" />
+            <div class="caption"><strong>Op-amp TB Waveform</strong><span>Voltage follower verification</span></div>
+          </article>
+        </div>
+      </section>
+
+      <p class="footer">Built for GitHub Pages. Click any image to enlarge.</p>
+    </main>
+
+    <div class="modal" id="img-modal">
+      <img id="img-modal-content" src="" alt="Expanded project image" />
+    </div>
+
+    <script src="assets/script.js"></script>
+  </body>
+</html>

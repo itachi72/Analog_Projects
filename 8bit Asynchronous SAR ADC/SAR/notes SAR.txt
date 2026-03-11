@@ -1,0 +1,2 @@
+1. SAR architecture has faults in Muhammed aldacher's GitHub. Refer image in the folder for correct architechture.
+2. I initially assumed there is a mistake in the sub blocks. Upon checking functioning of each with testbenches, I narrowed it down to the SAR_mono. Realised it was a mistake with the architecture.
