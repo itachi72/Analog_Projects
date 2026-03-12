@@ -12,7 +12,7 @@ Project-level index for SAR ADC block simulations and integration assets.
 | DAC with BootStrappedSwitch | `DAC/DAC_with_BootStrappedSwitch/` | `DAC_with_BootStrappedSwitch.txt` | integrated schematic and waveform variants |
 | SAR Logic | `SAR/` | `notes SAR.txt` | SAR logic, clk/reset, comparator case waveforms |
 | CMOS D FF | `SAR/CMOS D FF/` | - | schematic, TB, waveform |
-| Reference | `Reference/` | - | architecture references and project PDF |
+| Reference | `Reference/` | - | architecture reference images |
 | Whole System | `WholeSystem/` | - | top-level system image |
 
 ## Suggested Next Standardization Actions

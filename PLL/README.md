@@ -10,7 +10,7 @@ Project-level index for PLL block simulations and system integration artifacts.
 | Divider | `Divider/` | - | DFF/TSPC schematics, TB setups, waveforms |
 | Gates | `Gates/` | - | INV/NAND/NOR schematics |
 | PFD | `PFD/` | `PFD.txt` | PFD schematic, TB, waveform, TB params |
-| Reference | `Reference/` | - | project reference PDF |
+| Reference | `Reference/` | - | supporting design references |
 | VCO Ring | `VCO_ring/` | `note VCO ring.txt` | iteration schematics and waveforms |
 | Whole System | `Whole System/` | `note whole system.txt` | full schematic, params, final matched outputs |
 
