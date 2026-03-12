@@ -100,6 +100,50 @@ main {
   padding: 1.2rem 1rem 3rem;
 }
 
+.front-layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.front-content {
+  min-width: 0;
+}
+
+.profile-panel {
+  position: sticky;
+  top: 80px;
+  margin-top: 0;
+}
+
+.profile-card-main {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1rem;
+  background: linear-gradient(150deg, #fff8eb 0%, #ffedd6 100%);
+  box-shadow: var(--shadow);
+}
+
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #dcb384;
+  display: block;
+}
+
+.profile-card-main h2 {
+  margin: 0.9rem 0 0.4rem;
+  font-family: "Bricolage Grotesque", "Space Grotesk", sans-serif;
+}
+
+.profile-card-main p {
+  margin: 0.45rem 0;
+  color: var(--muted);
+}
+
 .hero {
   border: 1px solid var(--line);
   background: linear-gradient(120deg, #fff8eb 0%, #ffe7cc 100%);
@@ -268,5 +312,19 @@ main {
 
   .card img {
     height: 200px;
+  }
+}
+
+@media (max-width: 960px) {
+  .front-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-panel {
+    position: static;
+  }
+
+  .profile-photo {
+    max-height: 320px;
   }
 }

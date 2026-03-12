@@ -29,7 +29,7 @@ Path: `LDO/`
 Blocks:
 - `Error Amplifier/`
 - `LDO_Error_Amplifier/`
-- `New_Hafeez KT/`
+- `New_7_Transistor/`
 
 Project details: `LDO/README.md`
 

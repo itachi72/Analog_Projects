@@ -8,7 +8,7 @@ Project-level index for LDO design and simulation artifacts.
 |---|---|---|---|
 | Error Amplifier | `Error Amplifier/` | - | error amplifier schematic and DC simulation captures |
 | LDO + Error Amplifier | `LDO_Error_Amplifier/` | - | LDO schematic and DC analysis capture |
-| New Hafeez KT | `New_Hafeez KT/` | - | LDO schematic/waveform and opamp schematic/testbench/waveform |
+| New 7_Transistor | `New_7_Transistor/` | - | LDO schematic/waveform and opamp schematic/testbench/waveform |
 
 ## Suggested Next Standardization Actions
 
