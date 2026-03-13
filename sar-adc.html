@@ -35,9 +35,6 @@
         <div class="note">
           SAR ADC in one line: sample input, compare with DAC guess, decide bit-by-bit from MSB to LSB.
         </div>
-        <div class="note">
-          Screenshot structure: each block is organized as <strong>Schematic -> Testbench -> Waveform/Result</strong>.
-        </div>
       </section>
 
       <section class="section">
@@ -81,16 +78,24 @@
             <img class="zoomable" src="8bit Asynchronous SAR ADC/Comparator/StrongArmLatch.png" alt="StrongArm latch" />
             <div class="caption"><strong>StrongARM Latch</strong><span>Latch-level block used in comparator</span></div>
           </article>
+          <article class="card">
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/Comparator/RSLatch.png" alt="RS latch" />
+            <div class="caption"><strong>RSLatch</strong><span>Set-reset latch used in decision flow</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/Comparator/XOR.png" alt="XOR gate" />
+            <div class="caption"><strong>XOR</strong><span>Logic block used in comparator path</span></div>
+          </article>
         </div>
       </section>
 
       <section class="section">
         <div class="section-head">
-          <h2>DAC + SAR Logic</h2>
+          <h2>DAC</h2>
           <small>Conversion backbone</small>
         </div>
         <div class="note">
-          Intuition: DAC creates trial voltages while SAR logic updates bits until the digital code converges.
+          Intuition: DAC creates trial voltages used by the comparator at each conversion step.
         </div>
         <div class="grid">
           <article class="card">
@@ -102,8 +107,40 @@
             <div class="caption"><strong>DAC TB Waveform</strong><span>Output progression across bits</span></div>
           </article>
           <article class="card">
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/DAC/TGSwitch.png" alt="TG switch schematic" />
+            <div class="caption"><strong>TGSwitch Schematic</strong><span>Transmission-gate switch implementation</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/DAC/SwitchNW.png" alt="Switch network schematic" />
+            <div class="caption"><strong>SwitchNW Schematic</strong><span>Switch network used in DAC selection path</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>SAR</h2>
+          <small>Bit cycling and decision logic</small>
+        </div>
+        <div class="note">
+          Intuition: SAR logic updates each bit using comparator output until conversion is complete.
+        </div>
+        <div class="grid">
+          <article class="card">
             <img class="zoomable" src="8bit Asynchronous SAR ADC/SAR/SAR Logic.png" alt="SAR logic" />
             <div class="caption"><strong>SAR Logic</strong><span>Bit cycling and register decisions</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/SAR/CMOS D FF/CMOS D FF schematic.png" alt="CMOS D FF schematic" />
+            <div class="caption"><strong>CMOS D FF</strong><span>D flip-flop block used in SAR register path</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/SAR/Comp_in=0 waveforms.png" alt="SAR output with comp_in zero" />
+            <div class="caption"><strong>SAR op comp_in=0</strong><span>Conversion behavior for comparator low input case</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/SAR/Comp_in=1 waveforms.png" alt="SAR output with comp_in one" />
+            <div class="caption"><strong>SAR op comp_in=1</strong><span>Conversion behavior for comparator high input case</span></div>
           </article>
         </div>
       </section>
@@ -122,7 +159,7 @@
             <div class="caption"><strong>Whole System</strong><span>Integrated asynchronous SAR ADC</span></div>
           </article>
           <article class="card">
-            <img class="zoomable" src="8bit Asynchronous SAR ADC/Reference/Results.png" alt="Reference results" />
+            <img class="zoomable" src="8bit Asynchronous SAR ADC/image_sim.png" alt="Result snapshot" />
             <div class="caption"><strong>Result Snapshot</strong><span>System-level behavior reference</span></div>
           </article>
         </div>

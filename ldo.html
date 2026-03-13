@@ -35,9 +35,6 @@
         <div class="note">
           LDO in one line: compare output with reference, amplify error, drive pass device, keep output steady.
         </div>
-        <div class="note">
-          Screenshot structure: each block follows <strong>Schematic -> Bias/Test Setup -> DC/Waveform Result</strong>.
-        </div>
       </section>
 
       <section class="section">
@@ -66,27 +63,7 @@
 
       <section class="section">
         <div class="section-head">
-          <h2>LDO + Error Amplifier Integration</h2>
-          <small>Combined regulation behavior</small>
-        </div>
-        <div class="note">
-          Intuition: closed-loop connection shows how reference setting maps to regulated output level.
-        </div>
-        <div class="grid">
-          <article class="card">
-            <img class="zoomable" src="LDO/LDO_Error_Amplifier/LDO sch.png" alt="LDO schematic" />
-            <div class="caption"><strong>LDO Schematic</strong><span>Integrated regulator + control block</span></div>
-          </article>
-          <article class="card">
-            <img class="zoomable" src="LDO/LDO_Error_Amplifier/LDO DC analysis(Vref=VN=1.2, Vout=1.5)see Vds of M2, calculate, gets 1.5V=VD=Vout.png" alt="LDO DC analysis" />
-            <div class="caption"><strong>DC Analysis</strong><span>Vref and output relation validation</span></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-head">
-          <h2>New 7_Transistor Variant</h2>
+          <h2>LDO</h2>
           <small>Alternative implementation and tuning</small>
         </div>
         <div class="note">
@@ -95,7 +72,7 @@
         <div class="grid">
           <article class="card">
             <img class="zoomable" src="LDO/New_7_Transistor/LDO_schematic.png" alt="New 7_Transistor LDO schematic" />
-            <div class="caption"><strong>Variant LDO Schematic</strong><span>Updated structure for target behavior</span></div>
+            <div class="caption"><strong>LDO Schematic</strong><span>Updated structure for target behavior</span></div>
           </article>
           <article class="card">
             <img class="zoomable" src="LDO/New_7_Transistor/opamp schematic.png" alt="Opamp schematic" />
@@ -103,7 +80,11 @@
           </article>
           <article class="card">
             <img class="zoomable" src="LDO/New_7_Transistor/opamp testbench(voltage follower)_waveform.png" alt="Opamp follower waveform" />
-            <div class="caption"><strong>Op-amp TB Waveform</strong><span>Voltage follower verification</span></div>
+            <div class="caption"><strong>Op-amp voltage follower waveform</strong><span>Voltage follower verification</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="LDO/New_7_Transistor/LDO_waveform(output needed 2x of input. so resistors chosen acc).png" alt="LDO output waveform" />
+            <div class="caption"><strong>LDO waveform op=ip*2</strong><span>Output waveform target verification</span></div>
           </article>
         </div>
       </section>

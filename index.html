@@ -29,10 +29,10 @@
       <div class="front-layout">
         <aside class="profile-panel section">
           <div class="profile-card-main">
-            <img class="profile-photo" src="assets/disha_pic.jpeg" alt="Bubu Gupta profile photo" />
+            <img class="profile-photo" src="assets/disha_pic.jpeg" alt="Disha Gupta profile photo" />
             <h2>About Me</h2>
             <p>
-              I am Bubu Gupta, an analog/mixed-signal design enthusiast focused on practical
+              I am Disha Gupta, an analog/mixed-signal design enthusiast focused on practical
               block-level design, simulation, and full-system integration.
             </p>
             <p>
@@ -66,9 +66,6 @@
         </div>
         <div class="note">
           Input reference is 30 MHz, VCO runs around 1.9 GHz, and divider feedback is brought back to 30 MHz for phase/frequency comparison.
-        </div>
-        <div class="note">
-          Screenshot structure: each block is shown as <strong>Schematic -> Testbench -> Waveform</strong> so design intent and behavior stay side by side.
         </div>
       </section>
 
@@ -128,30 +125,6 @@
 
       <section class="section">
         <div class="section-head">
-          <h2>Divider</h2>
-          <small>DFF and TSPC-based stages</small>
-        </div>
-        <div class="note">
-          Intuition: divider scales high-frequency VCO output down to reference range so phase comparison is meaningful.
-        </div>
-        <div class="grid">
-          <article class="card">
-            <img class="zoomable" src="PLL/Divider/DFF_schematic.png" alt="DFF schematic" />
-            <div class="caption"><strong>DFF Schematic</strong><span>Core frequency division element</span></div>
-          </article>
-          <article class="card">
-            <img class="zoomable" src="PLL/Divider/TSPC_schematic.png" alt="TSPC schematic" />
-            <div class="caption"><strong>TSPC Schematic</strong><span>Dynamic latch stage used in divider chain</span></div>
-          </article>
-          <article class="card">
-            <img class="zoomable" src="PLL/Divider/Divider_TB_waveform.png" alt="Divider waveform" />
-            <div class="caption"><strong>Divider Waveform</strong><span>Output aligned to required feedback frequency</span></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-head">
           <h2>VCO Ring</h2>
           <small>Iteration-based design refinement</small>
         </div>
@@ -163,16 +136,40 @@
         </div>
         <div class="grid">
           <article class="card">
-            <img class="zoomable" src="PLL/VCO_ring/it1_schematic.png" alt="VCO iteration 1 schematic" />
-            <div class="caption"><strong>Iteration 1</strong><span>Early-stage topology and bias behavior</span></div>
-          </article>
-          <article class="card">
-            <img class="zoomable" src="PLL/VCO_ring/it3_waveform.png" alt="VCO iteration 3 waveform" />
-            <div class="caption"><strong>Iteration 3 Waveform</strong><span>Oscillation progression during tuning</span></div>
+            <img class="zoomable" src="PLL/VCO_ring/it5_waveform.png" alt="VCO output waveform" />
+            <div class="caption"><strong>Output VCO</strong><span>Oscillation output from final VCO iteration</span></div>
           </article>
           <article class="card">
             <img class="zoomable" src="PLL/VCO_ring/it5_schematic-final.png" alt="VCO final schematic" />
-            <div class="caption"><strong>Iteration 5 Final</strong><span>Finalized VCO stage for full-loop integration</span></div>
+            <div class="caption"><strong>Current starved ring oscillator</strong><span>Finalized VCO stage for full-loop integration</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Divider</h2>
+          <small>DFF and TSPC-based stages</small>
+        </div>
+        <div class="note">
+          Intuition: divider scales high-frequency VCO output down to reference range so phase comparison is meaningful.
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img class="zoomable" src="PLL/Divider/Divider_TB.png" alt="Divider schematic" />
+            <div class="caption"><strong>divider schematic</strong><span>Top-level divider testbench schematic</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Divider/DFF_schematic.png" alt="DFF schematic" />
+            <div class="caption"><strong>DFF Schematic</strong><span>Core frequency division element</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Divider/TSPC_schematic.png" alt="TSPC schematic" />
+            <div class="caption"><strong>TSPC Schematic</strong><span>Dynamic latch stage used in divider chain</span></div>
+          </article>
+          <article class="card">
+            <img class="zoomable" src="PLL/Divider/Divider_TB_waveform.png" alt="Divider waveform" />
+            <div class="caption"><strong>Divider Waveform</strong><span>Output aligned to required feedback frequency</span></div>
           </article>
         </div>
       </section>
@@ -192,11 +189,11 @@
           </article>
           <article class="card">
             <img class="zoomable" src="PLL/Whole System/final_output_zoomed(freq and phase matched).png" alt="PLL output zoomed frequency and phase matched" />
-            <div class="caption"><strong>Final Output Zoomed</strong><span>Frequency and phase match observed</span></div>
+            <div class="caption"><strong>Final Output I</strong><span>Frequency and phase match observed</span></div>
           </article>
           <article class="card">
             <img class="zoomable" src="PLL/Whole System/final_output_zoomed2(freq and phase matched).png" alt="PLL output zoomed 2 frequency and phase matched" />
-            <div class="caption"><strong>Final Output Zoomed 2</strong><span>Additional lock evidence</span></div>
+            <div class="caption"><strong>Final Output II</strong><span>Additional lock evidence</span></div>
           </article>
         </div>
       </section>
